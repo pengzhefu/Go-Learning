@@ -12,7 +12,7 @@ func main() {
             if more {
                 fmt.Println("received job", j)
             } else {
-                fmt.Println("received all jobs")
+                fmt.Println("received all jobs: ", more)
                 done <- true
                 return
             }

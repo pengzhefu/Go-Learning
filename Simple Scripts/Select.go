@@ -60,7 +60,7 @@ func main() {
 	// After execution done here, there would be a content in channel c1
 	
 	// for two channels, if c1 and c2 both have contents
-	select {  // select just like switch-case, would only choose once case to execute
+	select {  // select just like switch-case, would only choose one case to execute
 	case res1 := <- c1:  
 		fmt.Println("select1, res1:  ", res1)
 	case res2 := <- c2:

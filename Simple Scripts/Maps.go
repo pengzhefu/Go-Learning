@@ -6,6 +6,9 @@ func main() {
 	// still need to use make func to create map, make(map[key-type]val-type)
 	m := make(map[string]int) 
 	fmt.Println(m)
+	// adding key and value to its
+	m["k1"] = 7
+    m["k2"] = 13
 
 	n := map[string]int{"foo": 1, "bar": 2}  // another way to init map
 	fmt.Println("map:", n)
