@@ -9,7 +9,7 @@ import (
 )
 // This is the function we’ll run in every goroutine. Note that a WaitGroup must be passed to functions by pointer.
 func worker(id int, jobs <-chan int, wg *sync.WaitGroup) {
-	defer wg.Done()
+	defer wg.Done()  // here will execute when 
     for j := range jobs {
         fmt.Println("worker", id, "started  job", j)
         time.Sleep(5 * time.Second)
