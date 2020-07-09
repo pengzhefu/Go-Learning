@@ -17,6 +17,11 @@ type response2 struct {
     Fruits []string `json:"fruits"`
 }
 
+type log struct {
+	Devid   string `json:"devid"`
+	TldStep int    `json:"tld_step"`
+}
+
 func main() {
 
 
@@ -91,6 +96,13 @@ func main() {
         panic(err)
     }
 	fmt.Println(singleMap)
-	fmt.Println(singleMap["key1"].(string))
-	fmt.Println(singleMap["key2"].(float64))  // it should be float64 when using interface
+	fmt.Println(singleMap["key1"].(string))  // this converting method only used for []byte, `123` this one
+    fmt.Println(singleMap["key2"].(float64))  // it should be float64 when using interface
+    
+    fmt.Println("test for custom json")
+    tmp := `{"devid":"7734990C","tld_step":2}`
+    ret := log{}
+    json.Unmarshal([]byte(tmp), &ret)
+    fmt.Println(ret)
+    fmt.Println(ret.Devid)
 }
