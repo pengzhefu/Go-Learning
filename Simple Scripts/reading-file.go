@@ -9,6 +9,8 @@ import (
 	"encoding/json"
 )
 
+
+
 type log struct {
 	Devid   string `json:"devid"`
 	TldStep int    `json:"tld_step"`
@@ -59,14 +61,21 @@ func main() {
 		str1 := string(a)
 		fmt.Println(str1)
 
-		// try to decode json array of file
+		// try to decode json array of file in struct way
 		tmp := log{}
-		json.Unmarshal([]byte(str1), &tmp)
+		err2 := json.Unmarshal([]byte(a), &tmp)
+		checkError(err2)
 		fmt.Println(tmp)
+		fmt.Println(tmp.TldStep)
+
+		// try to decode json array of file in map+interface way
+		var singleMap map[string]interface{}
+		err3 := json.Unmarshal([]byte(a), &singleMap)
+		checkError(err3)
+		fmt.Println(singleMap)
+		fmt.Println(singleMap["tld_step"].(float64))
 		
 	}
 
-
-	
 
 }
